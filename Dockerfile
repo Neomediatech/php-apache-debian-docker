@@ -12,4 +12,6 @@ RUN echo $TZ > /etc/timezone && \
     rm -rf /var/lib/apt/lists* && \
     for mod in mysqli bz2 gd zip; do docker-php-ext-install $mod ; done 
 
+COPY apache.conf /etc/apache2/sites-available/000-default.conf
+
 CMD ["apache2-foreground"]
