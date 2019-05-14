@@ -18,5 +18,9 @@ RUN . "$APACHE_ENVVARS" && rm -f "$APACHE_LOG_DIR/error.log" "$APACHE_LOG_DIR/ac
     chown -R --no-dereference "$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$APACHE_LOG_DIR"
 
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["apache2-foreground"]
