@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Rome
 
 RUN echo $TZ > /etc/timezone && \
-    apt-get update && \
+    apt-get update && apt-get -y dist-upgrade && \
     apt-get install -y libbz2-dev libpng-dev pdfgrep libfcgi-bin netcat tzdata && \
     rm -rf /var/lib/apt/lists* && \
     for mod in mysqli bz2 gd zip; do docker-php-ext-install $mod ; done
