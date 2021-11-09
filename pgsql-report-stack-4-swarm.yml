@@ -7,7 +7,7 @@ services:
     hostname: pgsql-reports
     ports:
       - target: 80
-        published: 87
+        published: 8087
         protocol: tcp
         mode: host
     volumes:
