@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   app:
-    image: neomediatech/php-apache:PHP8
+    image: neomediatech/php-apache:7.4
     hostname: pgsql-reports
     ports:
       - target: 80
