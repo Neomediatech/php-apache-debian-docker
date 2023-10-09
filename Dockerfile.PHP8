@@ -8,7 +8,7 @@ ENV TZ=Europe/Rome
 
 RUN echo $TZ > /etc/timezone && \
     apt-get update && apt-get -y dist-upgrade && \
-    apt-get install -y --no-install-recommends libbz2-dev libpng-dev pdfgrep libfcgi-bin netcat tzdata libpq-dev libzip-dev && \
+    apt-get install -y --no-install-recommends libbz2-dev libpng-dev pdfgrep libfcgi-bin netcat-openbsd tzdata libpq-dev libzip-dev && \
     for mod in mysqli bz2 gd zip pdo_pgsql pgsql; do docker-php-ext-install $mod ; done && \
     apt-get purge -y libbz2-dev libpng-dev libpq-dev libzip-dev && \
     apt-get autoremove -y --purge && \
